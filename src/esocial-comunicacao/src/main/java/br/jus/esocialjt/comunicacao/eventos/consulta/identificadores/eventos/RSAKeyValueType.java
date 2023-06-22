@@ -40,11 +40,39 @@ import javax.xml.bind.annotation.XmlType;
     "exponent"
 })
 public class RSAKeyValueType {
-
     @XmlElement(name = "Modulus", required = true)
-    protected byte[] modulus;
+    private byte[] modulus;
+
     @XmlElement(name = "Exponent", required = true)
-    protected byte[] exponent;
+    private byte[] exponent;
+
+    // Constructors, getters, and setters
+
+    public RSAKeyValueType() {
+        // Default constructor
+    }
+
+    public RSAKeyValueType(byte[] modulus, byte[] exponent) {
+        this.modulus = modulus;
+        this.exponent = exponent;
+    }
+
+    public byte[] getModulus() {
+        return modulus;
+    }
+
+    public void setModulus(byte[] modulus) {
+        this.modulus = modulus;
+    }
+
+    public byte[] getExponent() {
+        return exponent;
+    }
+
+    public void setExponent(byte[] exponent) {
+        this.exponent = exponent;
+    }
+}
 
     /**
      * Obtém o valor da propriedade modulus.
