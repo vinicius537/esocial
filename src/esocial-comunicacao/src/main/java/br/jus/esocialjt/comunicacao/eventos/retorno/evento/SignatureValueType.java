@@ -41,14 +41,41 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "value"
 })
 public class SignatureValueType {
-
     @XmlValue
     protected byte[] value;
+
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
     protected String id;
+
+    // Construtores, getters e setters
+
+    public SignatureValueType() {
+        // Construtor padrão
+    }
+
+    public SignatureValueType(byte[] value, String id) {
+        this.value = value;
+        this.id = id;
+    }
+
+    public byte[] getValue() {
+        return value;
+    }
+
+    public void setValue(byte[] value) {
+        this.value = value;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Obtém o valor da propriedade value.
