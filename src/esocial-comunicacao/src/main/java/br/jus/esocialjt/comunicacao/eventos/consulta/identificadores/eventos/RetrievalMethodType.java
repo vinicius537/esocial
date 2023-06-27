@@ -42,15 +42,52 @@ import javax.xml.bind.annotation.XmlType;
     "transforms"
 })
 public class RetrievalMethodType {
-
     @XmlElement(name = "Transforms")
-    protected TransformsType transforms;
+    private TransformsType transforms;
+
     @XmlAttribute(name = "URI")
     @XmlSchemaType(name = "anyURI")
-    protected String uri;
+    private String uri;
+
     @XmlAttribute(name = "Type")
     @XmlSchemaType(name = "anyURI")
-    protected String type;
+    private String type;
+
+    // Construtores, getters e setters
+
+    public RetrievalMethodType() {
+        // Construtor padrão
+    }
+
+    public RetrievalMethodType(TransformsType transforms, String uri, String type) {
+        this.transforms = transforms;
+        this.uri = uri;
+        this.type = type;
+    }
+
+    public TransformsType getTransforms() {
+        return transforms;
+    }
+
+    public void setTransforms(TransformsType transforms) {
+        this.transforms = transforms;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     /**
      * Obtém o valor da propriedade transforms.
