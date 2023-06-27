@@ -49,18 +49,55 @@ import org.w3c.dom.Element;
     "content"
 })
 public class SignaturePropertyType {
-
     @XmlMixed
     @XmlAnyElement(lax = true)
-    protected List<Object> content;
+    private List<Object> content;
+
     @XmlAttribute(name = "Target", required = true)
     @XmlSchemaType(name = "anyURI")
-    protected String target;
+    private String target;
+
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
-    protected String id;
+    private String id;
+
+    // Construtores, getters e setters
+
+    public SignaturePropertyType() {
+        // Construtor padrão
+    }
+
+    public SignaturePropertyType(List<Object> content, String target, String id) {
+        this.content = content;
+        this.target = target;
+        this.id = id;
+    }
+
+    public List<Object> getContent() {
+        return content;
+    }
+
+    public void setContent(List<Object> content) {
+        this.content = content;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Gets the value of the content property.
