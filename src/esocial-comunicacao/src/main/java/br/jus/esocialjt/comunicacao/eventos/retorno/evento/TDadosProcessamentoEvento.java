@@ -62,16 +62,74 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "ocorrencias"
 })
 public class TDadosProcessamentoEvento {
-
     protected int cdResposta;
+
     @XmlElement(required = true)
     protected String descResposta;
+
     @XmlElement(required = true)
     protected String versaoAppProcessamento;
+
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dhProcessamento;
+
     protected TOcorrencias ocorrencias;
+
+    // Construtores, getters e setters
+
+    public TDadosProcessamentoEvento() {
+        // Construtor padrão
+    }
+
+    public TDadosProcessamentoEvento(int cdResposta, String descResposta, String versaoAppProcessamento,
+                                     XMLGregorianCalendar dhProcessamento, TOcorrencias ocorrencias) {
+        this.cdResposta = cdResposta;
+        this.descResposta = descResposta;
+        this.versaoAppProcessamento = versaoAppProcessamento;
+        this.dhProcessamento = dhProcessamento;
+        this.ocorrencias = ocorrencias;
+    }
+
+    public int getCdResposta() {
+        return cdResposta;
+    }
+
+    public void setCdResposta(int cdResposta) {
+        this.cdResposta = cdResposta;
+    }
+
+    public String getDescResposta() {
+        return descResposta;
+    }
+
+    public void setDescResposta(String descResposta) {
+        this.descResposta = descResposta;
+    }
+
+    public String getVersaoAppProcessamento() {
+        return versaoAppProcessamento;
+    }
+
+    public void setVersaoAppProcessamento(String versaoAppProcessamento) {
+        this.versaoAppProcessamento = versaoAppProcessamento;
+    }
+
+    public XMLGregorianCalendar getDhProcessamento() {
+        return dhProcessamento;
+    }
+
+    public void setDhProcessamento(XMLGregorianCalendar dhProcessamento) {
+        this.dhProcessamento = dhProcessamento;
+    }
+
+    public TOcorrencias getOcorrencias() {
+        return ocorrencias;
+    }
+
+    public void setOcorrencias(TOcorrencias ocorrencias) {
+        this.ocorrencias = ocorrencias;
+    }
 
     /**
      * Obtém o valor da propriedade cdResposta.
