@@ -880,14 +880,46 @@ public class TDadosRecibo {
             "clauAsseg"
         })
         public static class Duracao {
-
             @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
             protected byte tpContr;
+
             @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
             @XmlSchemaType(name = "date")
             protected XMLGregorianCalendar dtTerm;
+
             @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
             protected String clauAsseg;
+
+    // Construtores, getters e setters
+
+            public Duracao() {
+        // Construtor padrão
+            }
+
+            public byte getTpContr() {
+                return tpContr;
+            }
+
+            public void setTpContr(byte tpContr) {
+                this.tpContr = tpContr;
+            }
+
+            public XMLGregorianCalendar getDtTerm() {
+                return dtTerm;
+            }
+
+            public void setDtTerm(XMLGregorianCalendar dtTerm) {
+                this.dtTerm = dtTerm;
+            }
+
+            public String getClauAsseg() {
+                return clauAsseg;
+            }
+
+            public void setClauAsseg(String clauAsseg) {
+                this.clauAsseg = clauAsseg;
+            }
+        }
 
             /**
              * Obtém o valor da propriedade tpContr.
