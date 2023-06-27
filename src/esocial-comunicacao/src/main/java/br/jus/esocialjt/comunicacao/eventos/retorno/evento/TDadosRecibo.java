@@ -257,12 +257,54 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "contrato"
 })
 public class TDadosRecibo {
-
     @XmlElement(required = true)
     protected String nrRecibo;
+
     @XmlElement(required = true)
     protected String hash;
-    protected TDadosRecibo.Contrato contrato;
+
+    protected Contrato contrato;
+
+    // Construtores, getters e setters
+
+    public TDadosRecibo() {
+        // Construtor padrão
+    }
+
+    public TDadosRecibo(String nrRecibo, String hash, Contrato contrato) {
+        this.nrRecibo = nrRecibo;
+        this.hash = hash;
+        this.contrato = contrato;
+    }
+
+    public String getNrRecibo() {
+        return nrRecibo;
+    }
+
+    public void setNrRecibo(String nrRecibo) {
+        this.nrRecibo = nrRecibo;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+    // Classe interna Contrato
+    public static class Contrato {
+        // Campos e lógica da classe Contrato
+    }
 
     /**
      * Obtém o valor da propriedade nrRecibo.
