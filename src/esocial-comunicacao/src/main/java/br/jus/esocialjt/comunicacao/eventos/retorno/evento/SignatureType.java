@@ -52,20 +52,78 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "object"
 })
 public class SignatureType {
-
     @XmlElement(name = "SignedInfo", required = true)
-    protected SignedInfoType signedInfo;
+    private SignedInfoType signedInfo;
+
     @XmlElement(name = "SignatureValue", required = true)
-    protected SignatureValueType signatureValue;
+    private SignatureValueType signatureValue;
+
     @XmlElement(name = "KeyInfo")
-    protected KeyInfoType keyInfo;
+    private KeyInfoType keyInfo;
+
     @XmlElement(name = "Object")
-    protected List<ObjectType> object;
+    private List<ObjectType> objects;
+
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
-    protected String id;
+    private String id;
+
+    // Construtores, getters e setters
+
+    public SignatureType() {
+        // Construtor padrão
+    }
+
+    public SignatureType(SignedInfoType signedInfo, SignatureValueType signatureValue, KeyInfoType keyInfo,
+                         List<ObjectType> objects, String id) {
+        this.signedInfo = signedInfo;
+        this.signatureValue = signatureValue;
+        this.keyInfo = keyInfo;
+        this.objects = objects;
+        this.id = id;
+    }
+
+    public SignedInfoType getSignedInfo() {
+        return signedInfo;
+    }
+
+    public void setSignedInfo(SignedInfoType signedInfo) {
+        this.signedInfo = signedInfo;
+    }
+
+    public SignatureValueType getSignatureValue() {
+        return signatureValue;
+    }
+
+    public void setSignatureValue(SignatureValueType signatureValue) {
+        this.signatureValue = signatureValue;
+    }
+
+    public KeyInfoType getKeyInfo() {
+        return keyInfo;
+    }
+
+    public void setKeyInfo(KeyInfoType keyInfo) {
+        this.keyInfo = keyInfo;
+    }
+
+    public List<ObjectType> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(List<ObjectType> objects) {
+        this.objects = objects;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Obtém o valor da propriedade signedInfo.
