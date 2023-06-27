@@ -50,18 +50,68 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "reference"
 })
 public class SignedInfoType {
-
     @XmlElement(name = "CanonicalizationMethod", required = true)
-    protected CanonicalizationMethodType canonicalizationMethod;
+    private CanonicalizationMethodType canonicalizationMethod;
+
     @XmlElement(name = "SignatureMethod", required = true)
-    protected SignatureMethodType signatureMethod;
+    private SignatureMethodType signatureMethod;
+
     @XmlElement(name = "Reference", required = true)
-    protected List<ReferenceType> reference;
+    private List<ReferenceType> references;
+
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
-    protected String id;
+    private String id;
+
+    // Construtores, getters e setters
+
+    public SignedInfoType() {
+        // Construtor padrão
+    }
+
+    public SignedInfoType(CanonicalizationMethodType canonicalizationMethod,
+                          SignatureMethodType signatureMethod,
+                          List<ReferenceType> references,
+                          String id) {
+        this.canonicalizationMethod = canonicalizationMethod;
+        this.signatureMethod = signatureMethod;
+        this.references = references;
+        this.id = id;
+    }
+
+    public CanonicalizationMethodType getCanonicalizationMethod() {
+        return canonicalizationMethod;
+    }
+
+    public void setCanonicalizationMethod(CanonicalizationMethodType canonicalizationMethod) {
+        this.canonicalizationMethod = canonicalizationMethod;
+    }
+
+    public SignatureMethodType getSignatureMethod() {
+        return signatureMethod;
+    }
+
+    public void setSignatureMethod(SignatureMethodType signatureMethod) {
+        this.signatureMethod = signatureMethod;
+    }
+
+    public List<ReferenceType> getReferences() {
+        return references;
+    }
+
+    public void setReferences(List<ReferenceType> references) {
+        this.references = references;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Obtém o valor da propriedade canonicalizationMethod.
