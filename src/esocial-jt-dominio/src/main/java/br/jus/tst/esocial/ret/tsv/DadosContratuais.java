@@ -5,6 +5,8 @@ import br.jus.tst.esocial.dominio.semvinculo.MudancaCPF;
 import br.jus.tst.esocial.dominio.semvinculo.Termino;
 import br.jus.tst.esocial.dominio.vinculo.Afastamento;
 import java.time.LocalDate;
+import java.util.Objects;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -94,27 +96,24 @@ public class DadosContratuais {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
+    if (this == o) {
+        return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+        return false;
+    }
+    DadosContratuais that = (DadosContratuais) o;
+    return Objects.equals(codCateg, that.codCateg) &&
+           Objects.equals(matricula, that.matricula) &&
+           Objects.equals(dtInicio, that.dtInicio) &&
+           Objects.equals(nrProcTrab, that.nrProcTrab) &&
+           Objects.equals(natAtividade, that.natAtividade) &&
+           Objects.equals(infoComplementares, that.infoComplementares) &&
+           Objects.equals(afastamento, that.afastamento) &&
+           Objects.equals(termino, that.termino) &&
+           Objects.equals(mudancaCPF, that.mudancaCPF);
+}
 
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        DadosContratuais that = (DadosContratuais) o;
-
-        return new EqualsBuilder()
-                .append(codCateg, that.codCateg)
-                .append(matricula, that.matricula)
-                .append(dtInicio, that.dtInicio)
-                .append(nrProcTrab, that.nrProcTrab)
-                .append(natAtividade, that.natAtividade)
-                .append(infoComplementares, that.infoComplementares)
-                .append(afastamento, that.afastamento)
-                .append(termino, that.termino)
-                .append(mudancaCPF, that.mudancaCPF)
-                .isEquals();
     }
 
     @Override
