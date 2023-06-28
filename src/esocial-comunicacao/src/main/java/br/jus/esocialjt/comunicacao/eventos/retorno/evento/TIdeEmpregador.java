@@ -53,6 +53,22 @@ public class TIdeEmpregador {
     @XmlElement(required = true)
     protected String nrInsc;
 
+    public int getTpInsc() {
+        return tpInsc;
+    }
+
+    public void setTpInsc(int tpInsc) {
+        this.tpInsc = tpInsc;
+    }
+
+    public String getNrInsc() {
+        return nrInsc;
+    }
+
+    public void setNrInsc(String nrInsc) {
+        this.nrInsc = nrInsc;
+    }
+
     /**
      * Obtém o valor da propriedade tpInsc.
      * 
