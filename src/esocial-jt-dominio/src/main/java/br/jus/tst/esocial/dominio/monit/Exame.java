@@ -7,18 +7,46 @@ import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.util.Calendar;
 
-public class Exame {
-    @NotNull
-    public Calendar dtExm;
-    @NotNull
-    public BigInteger procRealizado;
-    public String obsProc;
-    public Byte ordExame;
-    public Byte indResult;
+public Calendar getDtExm() {
+    return dtExm;
+}
 
-    public Calendar getDtExm() {
-        return dtExm;
-    }
+public void setDtExm(Calendar dtExm) {
+    this.dtExm = dtExm;
+}
+
+public BigInteger getProcRealizado() {
+    return procRealizado;
+}
+
+public void setProcRealizado(BigInteger procRealizado) {
+    this.procRealizado = procRealizado;
+}
+
+public String getObsProc() {
+    return obsProc;
+}
+
+public void setObsProc(String obsProc) {
+    this.obsProc = obsProc;
+}
+
+public Byte getOrdExame() {
+    return ordExame;
+}
+
+public void setOrdExame(Byte ordExame) {
+    this.ordExame = ordExame;
+}
+
+public Byte getIndResult() {
+    return indResult;
+}
+
+public void setIndResult(Byte indResult) {
+    this.indResult = indResult;
+}
+
 
     public void setDtExm(Calendar dtExm) {
         this.dtExm = dtExm;
