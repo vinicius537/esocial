@@ -16,21 +16,37 @@ public class CheckDateValidator implements ConstraintValidator<CheckDate, String
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		return validate(value);
-	}
+    if (value == null || value.isEmpty()) {
+        return true;
+    }
+    return validate(value);
+}
 
-	private boolean validate(String dateString) {
-		boolean valid = false;
-		if (dateString == null || dateString.isEmpty()) {
-			return true;
-		}
-		for (String format : dateFormat) {
-			valid = validateFormat(dateString, valid, format, "DD-MM-YYYY", "dd-MM-yyyy");
-			valid = validateFormat(dateString, valid, format, "YYYY-MM", "yyyy-MM");
-			valid = validateFormat(dateString, valid, format, "YYYY", "yyyy");
-		}
-		return valid;
-	}
+private boolean validate(String dateString) {
+    for (String format : dateFormat) {
+        boolean valid = validateFormat(dateString, format, "DD-MM-YYYY", "dd-MM-yyyy") ||
+                        validateFormat(dateString, format, "YYYY-MM", "yyyy-MM") ||
+                        validateFormat(dateString, format, "YYYY", "yyyy");
+        if (valid) {
+            return true;
+        }
+    }
+    return false;
+}
+
+private boolean validateFormat(String dateString, String format, String... patterns) {
+    for (String pattern : patterns) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        sdf.setLenient(false);
+        try {
+            sdf.parse(dateString);
+            return true;
+        } catch (ParseException e) {
+            // Continua para o próximo padrão de formato
+        }
+    }
+    return false;
+}
 
 	private boolean validateFormat(String dateString, boolean valid, String format, String validFormat,
 			String dateFormat) {
