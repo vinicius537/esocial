@@ -3,6 +3,8 @@ package br.jus.tst.esocial.ret.tsv;
 import br.jus.tst.esocial.dominio.afasttemp.InfoAfastamento;
 import br.jus.tst.esocial.dominio.semvinculo.InfoComplementares;
 import java.util.List;
+import java.util.Objects;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import br.jus.tst.esocial.dominio.semvinculo.Termino;
@@ -38,17 +40,18 @@ public class TrabalhadorSemVinculo {
     }
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TrabalhadorSemVinculo trabalhadorSemVinculo = (TrabalhadorSemVinculo) o;
-        return new EqualsBuilder()
-                .append(dadosCadastrais, trabalhadorSemVinculo.dadosCadastrais)
-                .append(dadosCadastrais, trabalhadorSemVinculo.dadosContratuais)
-                .isEquals();
+    if (this == o) {
+        return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+        return false;
+    }
+    TrabalhadorSemVinculo trabalhadorSemVinculo = (TrabalhadorSemVinculo) o;
+
+    return Objects.equals(dadosCadastrais, trabalhadorSemVinculo.dadosCadastrais) &&
+            Objects.equals(dadosContratuais, trabalhadorSemVinculo.dadosContratuais);
+}
+
     }
 
     @Override
