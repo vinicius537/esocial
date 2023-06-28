@@ -20,16 +20,31 @@ public class CheckDateValidator implements ConstraintValidator<CheckDate, String
 	}
 
 	private boolean validate(String dateString) {
-		boolean valid = false;
-		if (dateString == null || dateString.isEmpty()) {
-			return true;
-		}
-		for (String format : dateFormat) {
-			valid = validateFormat(dateString, valid, format, "DD-MM-YYYY", "dd-MM-yyyy");
-			valid = validateFormat(dateString, valid, format, "YYYY-MM", "yyyy-MM");
-			valid = validateFormat(dateString, valid, format, "YYYY", "yyyy");
-		}
-		return valid;
+    if (dateString == null || dateString.isEmpty()) {
+        return true;
+    }
+
+    for (String format : dateFormat) {
+        if (isValidFormat(dateString, format)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+private boolean isValidFormat(String dateString, String format) {
+    SimpleDateFormat sdf = new SimpleDateFormat(format);
+    sdf.setLenient(false);
+
+    try {
+        sdf.parse(dateString);
+        return true;
+    } catch (ParseException e) {
+        return false;
+    }
+}
+
 	}
 
 	private boolean validateFormat(String dateString, boolean valid, String format, String validFormat,
