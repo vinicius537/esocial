@@ -13,24 +13,59 @@ import org.hibernate.validator.constraints.br.CPF;
  * Informações de contato
  *
  */
-public class Contato {
+@NotNull
+@CPF
+private String cpfCtt;
 
-	@NotNull
-	@Size(min=2, max=70)
-    private String nmCtt;
+@Size(min = 8, max = 13)
+private String foneFixo;
 
-	@NotNull
-	@CPF
-    private String cpfCtt;
-	
-	@Size(min=8, max=13)
-    private String foneFixo;
-    
-	@Size(min=8, max=13)
-    private String foneCel;
-	
-    @Email
-    private String email;
+@Size(min = 8, max = 13)
+private String foneCel;
+
+@Email
+private String email;
+
+public String getNmCtt() {
+    return nmCtt;
+}
+
+public void setNmCtt(String nmCtt) {
+    this.nmCtt = nmCtt;
+}
+
+public String getCpfCtt() {
+    return cpfCtt;
+}
+
+public void setCpfCtt(String cpfCtt) {
+    this.cpfCtt = cpfCtt;
+}
+
+public String getFoneFixo() {
+    return foneFixo;
+}
+
+public void setFoneFixo(String foneFixo) {
+    this.foneFixo = foneFixo;
+}
+
+public String getFoneCel() {
+    return foneCel;
+}
+
+public void setFoneCel(String foneCel) {
+    this.foneCel = foneCel;
+}
+
+public String getEmail() {
+    return email;
+}
+
+public void setEmail(String email) {
+    this.email = email;
+}
+
 
     /**
      * Nome do contato na empresa. Pessoa responsável por ser o contato do
