@@ -5,14 +5,29 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.math.BigInteger;
 
-public class IdeVinculoSST {
-    public String cpfTrab;
-    public String matricula;
-    public BigInteger codCateg;
+public String getCpfTrab() {
+    return cpfTrab;
+}
 
-    public String getCpfTrab() {
-        return cpfTrab;
-    }
+public void setCpfTrab(String cpfTrab) {
+    this.cpfTrab = cpfTrab;
+}
+
+public String getMatricula() {
+    return matricula;
+}
+
+public void setMatricula(String matricula) {
+    this.matricula = matricula;
+}
+
+public BigInteger getCodCateg() {
+    return codCateg;
+}
+
+public void setCodCateg(BigInteger codCateg) {
+    this.codCateg = codCateg;
+}
 
     public void setCpfTrab(String cpfTrab) {
         this.cpfTrab = cpfTrab;
