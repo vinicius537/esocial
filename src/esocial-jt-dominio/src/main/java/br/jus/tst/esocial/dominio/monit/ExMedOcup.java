@@ -6,20 +6,29 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-public class ExMedOcup {
+public byte getTpExameOcup() {
+    return tpExameOcup;
+}
 
-    public byte tpExameOcup;
+public void setTpExameOcup(byte tpExameOcup) {
+    this.tpExameOcup = tpExameOcup;
+}
 
-    @NotNull
-    @Valid
-    public Aso aso;
+public Aso getAso() {
+    return aso;
+}
 
-    @Valid
-    public RespMonit respMonit;
+public void setAso(Aso aso) {
+    this.aso = aso;
+}
 
-    public byte getTpExameOcup() {
-        return tpExameOcup;
-    }
+public RespMonit getRespMonit() {
+    return respMonit;
+}
+
+public void setRespMonit(RespMonit respMonit) {
+    this.respMonit = respMonit;
+}
 
     public void setTpExameOcup(byte tpExameOcup) {
         this.tpExameOcup = tpExameOcup;
