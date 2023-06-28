@@ -11,6 +11,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.List;
+import java.util.Objects;
 
 public class DadosCadastrais {
     public String cpfTrab;
@@ -132,26 +133,29 @@ public class DadosCadastrais {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DadosCadastrais that = (DadosCadastrais) o;
-        return new EqualsBuilder()
-                .append(racaCor, that.racaCor)
-                .append(cpfTrab, that.cpfTrab)
-                .append(nmTrab, that.nmTrab)
-                .append(sexo, that.sexo)
-                .append(estCiv, that.estCiv)
-                .append(grauInstr, that.grauInstr)
-                .append(nmSoc, that.nmSoc)
-                .append(nascimento, that.nascimento)
-                .append(endereco, that.endereco)
-                .append(trabImig, that.trabImig)
-                .append(infoDeficiencia, that.infoDeficiencia)
-                .append(dependente, that.dependente)
-                .append(contato, that.contato)
-                .isEquals();
+   public boolean equals(Object o) {
+    if (this == o) {
+        return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+        return false;
+    }
+    DadosCadastrais that = (DadosCadastrais) o;
+    return Objects.equals(racaCor, that.racaCor) &&
+           Objects.equals(cpfTrab, that.cpfTrab) &&
+           Objects.equals(nmTrab, that.nmTrab) &&
+           Objects.equals(sexo, that.sexo) &&
+           Objects.equals(estCiv, that.estCiv) &&
+           Objects.equals(grauInstr, that.grauInstr) &&
+           Objects.equals(nmSoc, that.nmSoc) &&
+           Objects.equals(nascimento, that.nascimento) &&
+           Objects.equals(endereco, that.endereco) &&
+           Objects.equals(trabImig, that.trabImig) &&
+           Objects.equals(infoDeficiencia, that.infoDeficiencia) &&
+           Objects.equals(dependente, that.dependente) &&
+           Objects.equals(contato, that.contato);
+}
+
 
     @Override
     public int hashCode() {
