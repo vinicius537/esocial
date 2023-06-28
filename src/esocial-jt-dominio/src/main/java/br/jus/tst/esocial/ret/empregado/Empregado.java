@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Empregado {
     public DadosCadastrais dadosCadastrais;
@@ -56,17 +57,20 @@ public class Empregado {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Empregado empregado = (Empregado) o;
-        return new EqualsBuilder()
-                .append(dadosCadastrais, empregado.dadosCadastrais)
-                .append(dadosContratuais, empregado.dadosContratuais)
-                .append(dadosDesligamento, empregado.dadosDesligamento)
-                .append(dadosAfastamentos, empregado.dadosAfastamentos)
-                .append(dadosCessoes, empregado.dadosCessoes)
-                .isEquals();
+    if (this == o) {
+        return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+        return false;
+    }
+    Empregado empregado = (Empregado) o;
+    return Objects.equals(dadosCadastrais, empregado.dadosCadastrais) &&
+           Objects.equals(dadosContratuais, empregado.dadosContratuais) &&
+           Objects.equals(dadosDesligamento, empregado.dadosDesligamento) &&
+           Objects.equals(dadosAfastamentos, empregado.dadosAfastamentos) &&
+           Objects.equals(dadosCessoes, empregado.dadosCessoes);
+}
+
 
     @Override
     public int hashCode() {
