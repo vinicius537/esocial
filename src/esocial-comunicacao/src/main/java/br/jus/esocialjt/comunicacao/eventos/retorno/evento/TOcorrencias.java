@@ -145,15 +145,48 @@ public class TOcorrencias {
     })
     public static class Ocorrencia {
 
-        @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
-        @XmlSchemaType(name = "unsignedByte")
-        protected short tipo;
-        @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
-        protected int codigo;
-        @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1", required = true)
-        protected String descricao;
-        @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
-        protected String localizacao;
+    @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
+    @XmlSchemaType(name = "unsignedByte")
+    protected short tipo;
+    @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
+    protected int codigo;
+    @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1", required = true)
+    protected String descricao;
+    @XmlElement(namespace = "http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1")
+    protected String localizacao;
+
+    public short getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(short tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+}
 
         /**
          * Obtém o valor da propriedade tipo.
